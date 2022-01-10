@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31702.278
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "A365", "A365\A365.csproj", "{A17D30B5-F88B-4905-99D6-BCD49610EEEB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "A365.Generator", "A365.Generator\A365.Generator.csproj", "{CF1AFD89-FCF4-47A3-8271-78444C897E7A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "A365.Lite", "A365.Lite\A365.Lite.csproj", "{6010BB2D-F4A1-4C5F-9B26-F06B7DC9B025}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A17D30B5-F88B-4905-99D6-BCD49610EEEB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A17D30B5-F88B-4905-99D6-BCD49610EEEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A17D30B5-F88B-4905-99D6-BCD49610EEEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A17D30B5-F88B-4905-99D6-BCD49610EEEB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF1AFD89-FCF4-47A3-8271-78444C897E7A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF1AFD89-FCF4-47A3-8271-78444C897E7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF1AFD89-FCF4-47A3-8271-78444C897E7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF1AFD89-FCF4-47A3-8271-78444C897E7A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6010BB2D-F4A1-4C5F-9B26-F06B7DC9B025}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6010BB2D-F4A1-4C5F-9B26-F06B7DC9B025}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6010BB2D-F4A1-4C5F-9B26-F06B7DC9B025}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6010BB2D-F4A1-4C5F-9B26-F06B7DC9B025}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {94A03ECD-EB1B-4540-ACCE-5A6ED8AEA7DB}
+	EndGlobalSection
+EndGlobal

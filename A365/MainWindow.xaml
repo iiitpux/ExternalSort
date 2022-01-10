@@ -1,0 +1,32 @@
+﻿<Window x:Class="A365.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:A365"
+        mc:Ignorable="d"
+        Style="{DynamicResource CustomWindowStyle}"
+        Title="MainWindow" Height="579" Width="260">
+    <Grid>
+        <Button Name="FileButton" Content="Выбрать файл" HorizontalAlignment="Left" Margin="10,47,0,0" VerticalAlignment="Top"  Height="40" Padding="10" Width="238"/>
+        <Label Content="{ Binding FilePath, Mode=OneWay}" HorizontalAlignment="Left" Margin="10,87,0,0" VerticalAlignment="Top"/>
+        <Label Content="Сортировка больших файлов" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="26" Width="246"/>
+        <Label Content="{ Binding RamSizeLabelContent, Mode=OneWay}" Name="FileSizeLabel"  HorizontalAlignment="Left" Margin="10,112,0,0" VerticalAlignment="Top"/>
+        <Slider Value="{ Binding RamSizeValue, Mode=TwoWay}" HorizontalAlignment="Left" Margin="10,134,0,0" VerticalAlignment="Top" Width="238" Height="18"  Name="RamSize"/>
+        <Label Content="{ Binding CoreCountLabelContent, Mode=OneWay}" Name="CoreCountLabel"  HorizontalAlignment="Left" Margin="10,173,0,0" VerticalAlignment="Top"/>
+        <Slider Value="{ Binding CoreCountValue, Mode=TwoWay}" Name="CoreCount" HorizontalAlignment="Left" Margin="10,199,0,0" VerticalAlignment="Top" Width="238" Height="18"/>
+        <RadioButton GroupName="Hard" Content="SSD" IsChecked="{ Binding SsdDriveChecked, Mode=TwoWay}" Checked="RadioButton_Checked" HorizontalAlignment="Left" Margin="10,240,0,0" VerticalAlignment="Top"/>
+        <RadioButton GroupName="Hard" Content="HDD" HorizontalAlignment="Left" Margin="10,276,0,0" Checked="RadioButton_Checked" VerticalAlignment="Top"/>
+        <Slider Name="ThreadCount" Value="{ Binding ThreadCountValue, Mode=TwoWay}" HorizontalAlignment="Left" Margin="169,240,0,0" VerticalAlignment="Top" Width="79"/>
+        <Label Content="{ Binding ThreadCountLabelContent, Mode=OneWay}" Name="ThreadCountLabel" HorizontalAlignment="Left" Margin="83,236,0,0" VerticalAlignment="Top"/>
+        <CheckBox Name="SecondDrive" Content="Использовать втророй диск" IsChecked="{ Binding UseSecondDrive, Mode=TwoWay}" HorizontalAlignment="Left" Margin="10,311,0,0" VerticalAlignment="Top"/>
+        <RadioButton Name="Ssd2" GroupName="Hard2" Content="SSD" IsChecked="{ Binding SsdDriveChecked2, Mode=TwoWay}" Checked="RadioButton_Checked2" HorizontalAlignment="Left" Margin="35,393,0,0" VerticalAlignment="Top"/>
+        <RadioButton Name="Hdd2" GroupName="Hard2" Content="HDD" HorizontalAlignment="Left" Margin="35,428,0,0" Checked="RadioButton_Checked2" VerticalAlignment="Top"/>
+        <Slider Name="ThreadCount2" Value="{ Binding ThreadCount2Value, Mode=TwoWay}" HorizontalAlignment="Left" Margin="169,393,0,0" VerticalAlignment="Top" Width="79"/>
+        <Label Content="{ Binding ThreadCount2LabelContent, Mode=OneWay}" Name="ThreadCount2Label" HorizontalAlignment="Left" Margin="88,389,0,0" VerticalAlignment="Top"/>
+        <Label Content="{ Binding ResultLabelContent, Mode=OneWay}" Name="ResultLabel" HorizontalAlignment="Left" Margin="15,518,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.323,-0.299"/>
+        <Button Name="DirectoryButton" Content="Выбрать директорию" HorizontalAlignment="Left" Margin="35,344,0,0" VerticalAlignment="Top" Click="Button_Click_1" Height="40" Padding="10" Width="213"/>
+        <Button  Name="CancelButton" Content="Отменить" HorizontalAlignment="Left" Margin="15,466,0,0" VerticalAlignment="Top"  Height="40" Padding="10" Click="CancelButton_Click"/>
+        <Button Name="GenerateButton" Content="Отсортировать" HorizontalAlignment="Left" Margin="15,466,0,0" VerticalAlignment="Top" Click="Button_Click" Height="40" Padding="10" />
+    </Grid>
+</Window>
