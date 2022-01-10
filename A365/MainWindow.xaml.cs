@@ -131,8 +131,7 @@ namespace A365
         public MainWindow()
         {
             InitializeComponent();
-            //создавать папку для каждого раза
-            //вынести все по правилам единой ответственности
+
             this.DataContext = this;
 
             FileButton.Click += FileButton_Click;
@@ -334,12 +333,11 @@ namespace A365
 
             stopwatch.Stop();
 
-            if (_cancellationTokenSource.Token.IsCancellationRequested)
-            {
-                Reset();
-                return;
-            }
+            Reset();
 
+            if (_cancellationTokenSource.Token.IsCancellationRequested)
+                return;
+            
             ResultLabelContent = $"Отсортировано за {stopwatch.ElapsedMilliseconds / 1000} секунд";
         }
 

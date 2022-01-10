@@ -27,6 +27,8 @@ namespace A365.Generator
 
     public partial class MainWindow : Window
     {
+
+        #region Properties
         private Dictionary<int, (int, string)> _fileSizeDict = new Dictionary<int, (int, string)>();
 
         public string FirstString
@@ -93,9 +95,11 @@ namespace A365.Generator
         }
         public static readonly DependencyProperty ResultLabelContentProperty = DependencyProperty.Register(nameof(ResultLabelContent), typeof(string), typeof(MainWindow), new PropertyMetadata(""));
 
+        #endregion
+
         private CancellationTokenSource _cancellationTokenSource;
         private string _outputFileName = "output";
-        //выводить сколько процентов выполнено
+
         public MainWindow()
         {
             InitializeComponent();
@@ -146,7 +150,7 @@ namespace A365.Generator
             this.FirstString = "Размер файла: " + _fileSizeDict[FileSizeValue].Item2;
         }
 
-        private async void Button_Click(object sender, RoutedEventArgs e)//Уточнить как правильно работать с async в wpf
+        private async void Button_Click(object sender, RoutedEventArgs e)
         {
             if (string.IsNullOrWhiteSpace(FilePath))
             {
@@ -219,7 +223,7 @@ namespace A365.Generator
         {
             long fileSizeInByte = 0;
             var wordGenerator = new WordGenerator();
-            using (StreamWriter file = new StreamWriter(@$"{filePath}\{_outputFileName}{index}.txt", true))//имя файла из фронта
+            using (StreamWriter file = new StreamWriter(@$"{filePath}\{_outputFileName}{index}.txt", true))
             {
                 Random rnd = new Random();
                 while (fileSizeInByte < minFileSizeInByte)
@@ -233,106 +237,6 @@ namespace A365.Generator
                     fileSizeInByte += 2;
                 }
             }
-        }
-
-        public class WordGenerator
-        {
-            private List<int> _pattern = new List<int>();
-            private string[] _dict = new string[] { "accept", "barefoot", "coast", "define", "enable", "fault", "glass",
-                                                    "handle", "include", "kernel", "leak", "match", "network", "offset",
-                                                    "patch", "quality", "rate", "salt", "tag", "unique", "visible", "weak",
-                                                    "yield", "zookeeper"};
-            private string _separtor = ". ";
-            private int _maxValue;
-            private StringBuilder _stringBuilder;
-            private Random _random;
-            private List<string> _duplicate;
-
-            public WordGenerator()
-            {
-                _maxValue = _dict.Length - 1;
-                _stringBuilder = new StringBuilder();
-                _duplicate = new List<string>();
-
-                _random = new Random();
-
-                for (int i = _dict.Length - 1; i > 0; i--)
-                {
-                    int swapIndex = _random.Next(i + 1);
-                    var tmp = _dict[i];
-                    _dict[i] = _dict[swapIndex];
-                    _dict[swapIndex] = tmp;
-                }
-
-                _pattern.Add(0);
-            }
-
-            public string Next()
-            {
-                _stringBuilder.Clear();
-
-                _stringBuilder.Append(_random.Next(0, int.MaxValue));
-                _stringBuilder.Append(_separtor);
-
-                if (_random.Next(0, 100) == 7 && _duplicate.Any())
-                {
-                    var str = _duplicate[_random.Next(0, _duplicate.Count - 1)];
-                    _stringBuilder.Append(str);
-
-                    if (_duplicate.Count > 100)
-                        _duplicate.RemoveAt(_random.Next(0, _duplicate.Count - 1));
-
-                    return _stringBuilder.ToString();
-                }
-
-                PlusOne(_pattern.Count - 1);
-
-                _stringBuilder.Append(_dict[_random.Next(0, _maxValue)]);
-                _stringBuilder.Append(" ");
-
-                for (int i = 0; i < _pattern.Count; i++)
-                {
-                    _stringBuilder.Append(_dict[_pattern[i]]);
-
-                    if (i != _pattern.Count - 1)
-                        _stringBuilder.Append(" ");
-                }
-
-                var result = _stringBuilder.ToString();
-
-                if (_random.Next(0, 100) == 5)
-                {
-                    _duplicate.Add(result.Split(_separtor)[1]);
-                }
-
-                return result;
-            }
-
-            private void PlusOne(int index)
-            {
-                if (_pattern[index] + 1 > _maxValue)
-                {
-                    if (index == 0)
-                    {
-                        _pattern.Add(0);
-                        FillPattern();
-                        return;
-                    }
-                    _pattern[index] = 0;
-                    PlusOne(index - 1);
-                }
-                else
-                    _pattern[index]++;
-            }
-
-            private void FillPattern()
-            {
-                for (int i = 0; i < _pattern.Count; i++)
-                {
-                    _pattern[i] = _random.Next(0, _maxValue);
-                }
-            }
-
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)

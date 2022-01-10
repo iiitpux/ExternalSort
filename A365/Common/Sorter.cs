@@ -28,7 +28,7 @@ namespace A365.Common
 
             public CancellationToken Token { set; get; }
         }
-        public static string Dict = "abcdefghijklmnopqrstuvwxyz";//А вдруг не все символы есть, можно не 
+        public static string Dict = "abcdefghijklmnopqrstuvwxyz";
         private string _filePrefix = "sorter";
         private static Dictionary<string, Buffer> _sorted;
         private class Buffer
@@ -141,7 +141,6 @@ namespace A365.Common
             var tasks2 = new List<Task>();
             foreach (var chunk in Dict.ToList().Chunk(mergeCount))
             {
-                //оставить Ienumerable
                 tasks2.Add(Task.Run(() =>
                 {
                     foreach (var postFix in chunk)
@@ -181,7 +180,7 @@ namespace A365.Common
         private void Merge(char postFix, string firstPath, string secondPath, string prefix, CancellationToken token)
         {
             var fileNames = Directory.GetFiles(secondPath, prefix + postFix + "*.txt", SearchOption.TopDirectoryOnly);
-            if (fileNames.Length > 1)//тут можкт быть переполнение, надо как то проверять
+            if (fileNames.Length > 1)
             {
                 var readers = new List<LineStreamReader>(fileNames.Length);
                 for (int i = 0; i < fileNames.Length; i++)
@@ -194,7 +193,7 @@ namespace A365.Common
                 var comparer = new ItemComparer();
                 using (StreamWriter file = new StreamWriter($@"{firstPath}\{prefix}{postFix}_result.txt", true))
                 {
-                    while (readers.Any(r => r.IsActive))//todo может после отработки сразу кикать
+                    while (readers.Any(r => r.IsActive))
                     {
                         var line = readers.Where(r => r.IsActive).OrderBy(r => r.Value, comparer).First().PopAsync();
                         file.WriteLine(line);
