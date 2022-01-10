@@ -7,8 +7,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "A365", "A365\A365.csproj", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "A365.Generator", "A365.Generator\A365.Generator.csproj", "{CF1AFD89-FCF4-47A3-8271-78444C897E7A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "A365.Lite", "A365.Lite\A365.Lite.csproj", "{6010BB2D-F4A1-4C5F-9B26-F06B7DC9B025}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,10 +21,6 @@ Global
 		{CF1AFD89-FCF4-47A3-8271-78444C897E7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CF1AFD89-FCF4-47A3-8271-78444C897E7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CF1AFD89-FCF4-47A3-8271-78444C897E7A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6010BB2D-F4A1-4C5F-9B26-F06B7DC9B025}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6010BB2D-F4A1-4C5F-9B26-F06B7DC9B025}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6010BB2D-F4A1-4C5F-9B26-F06B7DC9B025}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6010BB2D-F4A1-4C5F-9B26-F06B7DC9B025}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
